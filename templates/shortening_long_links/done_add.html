@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Title</title>
+</head>
+<body>
+<div class="login">
+    <h2>Ваш сокращенный URL</h2>
+
+    <li><a href="{{ url.links }}">{{ url.slug }}</a></li>
+
+</div>
+
+<div class="links1">
+    <a href="{% url 'profile' %}">Вернутся в личный кабинет</a>
+    <a href="{% url 'logout' %}">Выйти</a>
+</div>
+</body>
+</html>

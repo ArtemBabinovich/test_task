@@ -1,0 +1,34 @@
+body {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", "Lucida Grande", Verdana, Arial, sans-serif;
+}
+.login {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin: 10%;
+}
+.button {
+    display: flex;
+    justify-content: center;
+}
+
+.profile {
+  display: flex;
+  justify-content: center;
+}
+
+.links {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.links1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Личный кабинет</title>
+</head>
+<body>
+<div class="profile">
+    <h2>Добро пожаловать {{ user }}</h2>
+</div>
+<div class="links">
+    <p><a href="{% url 'add_url' %}">Получить сокращение длинной ссылки</a></p>
+    <p><a href="{% url 'logout' %}">Выйти</a></p>
+</div>
+<div class="links">__________________________________________________________________________</div>
+<div class="links1">
+    <p>Список всех ссылок:</p>
+    {% for i in url %}
+    <li><a href="{{ i.links }}">{{ i.slug }}</a></li>
+    {% endfor %}
+
+
+</div>
+</body>
+</html>

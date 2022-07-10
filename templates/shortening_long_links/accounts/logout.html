@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Выход с сайта</title>
+</head>
+<body>
+<div class="login">
+    <h2>Вы осуществили выход с сайта!</h2>
+    <h4>Хотите вернуться?</h4>
+    <a href="{% url 'login' %}">Вернуться</a>
+</div>
+</body>
+</html>
