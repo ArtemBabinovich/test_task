@@ -10,7 +10,7 @@
 <div class="login">
     <h2>Ваш сокращенный URL</h2>
 
-    <li><a href="{% url 'redirect_url' url.slug %}">{{ url.slug }}</a></li>
+    <li><a href="{{ url.links }}">{{ url.slug }}</a></li>
 
 </div>
 
