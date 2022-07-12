@@ -1,10 +1,12 @@
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib.auth.views import LoginView, LogoutView
-from django.shortcuts import render, redirect
+from django.http import HttpResponseRedirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, TemplateView
 
+from configuration.settings import ALLOWED_HOSTS
 from shortening_long_links.forms import UserRegisterForm, UrlForm
 from shortening_long_links.models import Links
 
@@ -62,3 +64,11 @@ def done_add(request):
 
 class RegisterDoneView(TemplateView):
     template_name = 'shortening_long_links/accounts/registration_done.html'
+
+
+def redirect_url(request, slug):
+    url = ALLOWED_HOSTS[0]
+    sl = f'{url}' + '/' + slug
+    target = get_object_or_404(Links, slug=sl)
+
+    return HttpResponseRedirect(target.links)

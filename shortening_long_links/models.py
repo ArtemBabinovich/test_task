@@ -1,9 +1,10 @@
 import random
 import string
-from urllib.parse import urlparse
 
 from django.contrib.auth.models import User
 from django.db import models
+
+from configuration.settings import ALLOWED_HOSTS
 
 
 class Links(models.Model):
@@ -19,10 +20,13 @@ class Links(models.Model):
     def __str__(self):
         return self.links
 
+    def __unicode__(self):
+        return '%s  %s' % (self.links, self.slug)
+
     def save(self, *args, **kwargs):
         length = 6
         char = string.ascii_uppercase + string.digits + string.ascii_lowercase
         short_id = ''.join(random.choice(char) for _ in range(length))
-        short = urlparse(self.links)
-        self.slug = short.scheme + '://' + short.hostname + '/' + short_id
+        short = ALLOWED_HOSTS[0]
+        self.slug = short + '/' + short_id
         super(Links, self).save(*args, **kwargs)

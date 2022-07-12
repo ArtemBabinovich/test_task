@@ -18,7 +18,7 @@
 <div class="links1">
     <p>Список всех ссылок:</p>
     {% for i in url %}
-    <li><a href="{{ i.links }}">{{ i.slug }}</a></li>
+    <li><a href="{% url 'redirect_url' i.slug %}">{{ i.slug }}</a></li>
     {% endfor %}
 
 
